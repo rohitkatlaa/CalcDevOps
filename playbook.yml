@@ -1,0 +1,28 @@
+# playbook.yml
+---
+- hosts: localhost
+  connection: local
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Building an image from Dockerfile
+      docker_image:
+        build:
+          path: .
+          pull: yes
+        name: CalcDevOps
+        source: build
+
+    - name: Creation of Docker Containers
+      docker_container:
+        name: calc-{{ item }}
+        image: CalcDevOps
+        state: present
+      with_sequence: count=3
+
+    - name: Starting Docker Containers
+      docker_container:
+        name: calc-{{ item }}
+        image: CalcDevOps
+        state: started
+      with_sequence: count=3
