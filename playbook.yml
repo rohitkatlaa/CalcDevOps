@@ -13,11 +13,11 @@
         name: calc-{{ item }}
         image: rohitkatlaa/calc_dev_ops:latest
         state: present
-      with_sequence: count=3
+      with_sequence: count=1
 
     - name: Starting Docker Containers
       docker_container:
         name: calc-{{ item }}
         image: rohitkatlaa/calc_dev_ops:latest
         state: started
-      with_sequence: count=3
+      with_sequence: count=1
