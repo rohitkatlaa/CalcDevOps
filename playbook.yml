@@ -4,20 +4,27 @@
   hosts: localhost
   connection: local
   tasks:
-    - name: pull an image
-      docker_image:
-        name: rohitkatlaa/calc_dev_ops:latest
+    - name: Build an image and push it to a private repo
+    docker_image:
+      path: .
+      name: rohitkatlaa/calc_dev_ops
+      tag: latest
+      push: yes
 
-    - name: Creation of Docker Containers
-      docker_container:
-        name: calc-{{ item }}
-        image: rohitkatlaa/calc_dev_ops:latest
-        state: present
-      with_sequence: count=1
+    # - name: pull an image
+    #   docker_image:
+    #     name: rohitkatlaa/calc_dev_ops:latest
 
-    - name: Starting Docker Containers
-      docker_container:
-        name: calc-{{ item }}
-        image: rohitkatlaa/calc_dev_ops:latest
-        state: started
-      with_sequence: count=1
+    # - name: Creation of Docker Containers
+    #   docker_container:
+    #     name: calc-{{ item }}
+    #     image: rohitkatlaa/calc_dev_ops:latest
+    #     state: present
+    #   with_sequence: count=1
+
+    # - name: Starting Docker Containers
+    #   docker_container:
+    #     name: calc-{{ item }}
+    #     image: rohitkatlaa/calc_dev_ops:latest
+    #     state: started
+    #   with_sequence: count=1
