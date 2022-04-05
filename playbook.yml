@@ -4,16 +4,9 @@
   hosts: localhost
   connection: local
   tasks:
-    - name: Build an image and push it to a private repo
-    docker_image:
-      path: .
-      name: rohitkatlaa/calc_dev_ops
-      tag: latest
-      push: yes
-
-    # - name: pull an image
-    #   docker_image:
-    #     name: rohitkatlaa/calc_dev_ops:latest
+    - name: pull an image
+      docker_image:
+        name: rohitkatlaa/calc_dev_ops:latest
 
     # - name: Creation of Docker Containers
     #   docker_container:
