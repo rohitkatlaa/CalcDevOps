@@ -2,6 +2,7 @@
 ---
 - name: Deploying CalcDevOps
   hosts: all
+  remote_user: rohit
   tasks:
     - name: pull an image
       docker_image:
