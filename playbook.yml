@@ -1,23 +1,8 @@
 # playbook.yml
 ---
 - name: Deploying CalcDevOps
-  hosts: localhost
-  connection: local
+  hosts: all
   tasks:
     - name: pull an image
       docker_image:
         name: rohitkatlaa/calc_dev_ops:latest
-
-    # - name: Creation of Docker Containers
-    #   docker_container:
-    #     name: calc-{{ item }}
-    #     image: rohitkatlaa/calc_dev_ops:latest
-    #     state: present
-    #   with_sequence: count=1
-
-    # - name: Starting Docker Containers
-    #   docker_container:
-    #     name: calc-{{ item }}
-    #     image: rohitkatlaa/calc_dev_ops:latest
-    #     state: started
-    #   with_sequence: count=1
