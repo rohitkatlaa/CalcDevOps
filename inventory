@@ -1,2 +1,2 @@
 [ubuntu18]
-172.16.134.129 ansible_user=rohit
+172.17.0.1 ansible_user=rohit
