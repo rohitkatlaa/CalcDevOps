@@ -1,7 +1,9 @@
 # playbook.yml
 ---
 - name: Deploying CalcDevOps
-  hosts: all
+  # hosts: all
+  hosts: localhost
+  connection: local
   remote_user: rohit
   tasks:
     - name: pull an image
